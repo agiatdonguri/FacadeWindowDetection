@@ -223,7 +223,7 @@ def train(input_dir, model_dir, num_epochs, learning_late, augmentation_factor, 
     # Split the tensor into train and test dataset
     path_list = glob.glob("{}/*.jpg".format(input_dir))
     X, Y = load_imgs(path_list, ground_params, floor_params, use_augmentation = True, augmentation_factor = augmentation_factor, use_shuffle = True, debug = debug)
-    print(X.shape)
+    #print(X.shape)
     if debug: return
 
     # Build model
@@ -331,8 +331,8 @@ def test(input_dir, model_dir, output_dir, debug):
             if (j > L_truth and j < R_truth):
                     correct4 += 1
         
-        print((1 - floors[len(floors) - 1]) * correct3 / width)
-        print((1 - floors[len(floors) - 1]) * correct4 / width)
+        #print((1 - floors[len(floors) - 1]) * correct3 / width)
+        #print((1 - floors[len(floors) - 1]) * correct4 / width)
         
         accuracy += (correct / w)
         if (w2 != 0):
@@ -343,8 +343,8 @@ def test(input_dir, model_dir, output_dir, debug):
         file_name = "{}/{}".format(output_dir, os.path.basename(path_list[i]))
         output_img2(Image.open(path_list[i]), Y, file_name)
     
-    print(accuracy / len(path_list))
-    print(accuracy2 / len(path_list))
+    #print(accuracy / len(path_list))
+    #print(accuracy2 / len(path_list))
 
 
 def main():	
